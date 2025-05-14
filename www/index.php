@@ -48,9 +48,9 @@ $myhead="Project Gutenberg Online Ebookmaker";
 <?php echo $myhead ?>
   </h1>
 
-<?php
+  <h2>Quick Start</h2>
 
-  print "<h2>Quick Start</h2>\n";
+<?php
 
   print "<p>Please upload a <strong>single file</strong>.  ";
   print "If your submission has more than ";

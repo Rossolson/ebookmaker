@@ -48,15 +48,14 @@ $myhead="Project Gutenberg Online Ebookmaker";
 <?php echo $myhead ?>
   </h1>
 
+  <h2>Quick Start</h2>
+
+  <p>Please upload a <strong>single file</strong>. If your submission has more than one
+file, upload a .zip of all the needed files. Any images should be in a subdirectory
+(i.e., folder) named "images", and cannot be omitted if they are referenced by the
+source.</p>
+
 <?php
-
-  print "<h2>Quick Start</h2>\n";
-
-  print "<p>Please upload a <strong>single file</strong>.  ";
-  print "If your submission has more than ";
-  print "one file, upload a .zip of all the needed files.  ";
-  print "Any images should be in a subdirectory (i.e., folder) ";
-  print "named \"images\", and cannot be omitted if they are referenced by the source.  ";
 
 print "<blockquote><form enctype=\"multipart/form-data\" method=\"POST\" accept-charset=\"UTF-8\" action=\"
 index.php\">\n";
@@ -71,106 +70,103 @@ teger)";
 
   print "<br><input type=\"submit\" value=\"Make it!\" name=\"make\">\n";
   print "</form></blockquote>\n\n";
-
-  print "<p>Ebookmaker will try to identify author, title, encoding and ";
-  print "eBook number from your file, IF it includes the standard Project ";
-  print "Gutenberg metadata as found in the published collection.  Otherwise, ";
-  print "you can provide values.  Missing values are not usually a problem (but you must provide an encodin
-g if you upload a plain text file).  Please only use Latin1 characters for author/title names.  </p>";
-
-  print "<p>Note: After your file has transferred, processing can take as long a few minutes for large file
-s. Send an email if the Web server seems to time out (so that run-time limits can be adjusted).</p>";
-
-if (! isset($_REQUEST['make'])) {
-
-  print "<h2>Usage Details</h2>";
-
-  print "<p>Here you can run ebookmaker on a file you upload.  The ebookmaker ";
-  print "tools are what www.gutenberg.org uses to automatically create ";
-  print "additional file formats for readers to enjoy.  The process is that ";
-  print "a master format file (RST, HTML or plain text) is used to generate ";
-  print "EPUB and other mobile-friendly formats, as well as HTML or text ";
-  print "if they were not provided originally.</p>\n";
-  print "\n<p>It is <font color=\"red\">strongly recommended</font> that ";
-  print "this tool be utilized before new eBooks are submitted at <a href=";
-  print "\"https://upload.pglaf.org/\">upload.pglaf.org</a>, in order to ";
-  print "allow opportunity to improve the automated output by making changes ";
-  print "to the submitted files.  In particular, the automated tools might ";
-  print "do poorly when submissions utilize HTML for page layout, rather than ";
-  print "only the content's structure.</p>\n";
-
-  print "<p>Ebookmaker will be run against a single file ";
-  print "type from among those you upload, whichever is found first: ";
-  print "<tt>.rst .htm .html .txt</tt>, so probably you should just include ";
-  print "one at a time.  Note, however, that the full processing chain ";
-  print "is implemented for rst (ReStructured Text) only.  For HTML, you will ";
-  print "get most output formats (including EPUB).  For plain text, you will ";
-  print "only get a few output formats (again, including EPUB), and ";
-  print "probably some errors from ebookmaker.</p>";
-
-
-  print "<p>You can test how well mobile output looks (EPUB and MOBI/Kindle) ";
-  print "without needing a mobile device.  Instead, try one of the many free ";
-  print "browser plug-ins. </p>\n";
-
-  print "<p>The file you upload should contain a nearly-finished ";
-  print "eBook project, such as would be submitted via ";
-  print "<a href=\"https://upload.pglaf.org/\">upload.pglaf.org</a>, although ";
-  print "the directory/file structure is simpler. ";
-  print "For HTML, it's best to run the <a href=\"https://validator.w3.org\">HTML validator</a> and other c
-hecks ";
-  print "found in the upload.pglaf.org 'preview' function." ;
-  print "The output you will get is intended to help determine whether resulting ";
-  print "automatically-generated files (epub and other formats) ";
-  print "have any problems or shortcomings that could be addressed ";
-  print "prior to submission.</p>\n";
 ?>
 
-<p>
-Information about ebookmaker best practices for Project Gutenberg is available at 
-<a href="https://www.pgdp.net/wiki/The_Proofreader%27s_Guide_to_EPUB">https://www.pgdp.net/wiki/The_Proofre
-ader%27s_Guide_to_EPUB</a>
-</p>
+  <p>Ebookmaker will try to identify author, title, encoding and eBook number from your
+file, <i>if</i> it includes the standard Project Gutenberg metadata as found in the
+published collection.  Otherwise, you can provide values.  Missing values are not usually
+a problem (but you must provide an encoding if you upload a plain text file).  Please only
+use Latin1 characters for author/title names.  </p>
 
-<p>
-You can <a href="https://github.com/gutenbergtools/ebookmaker/blob/dev/README.md">download the most recent 
-ebookmaker source</a> if you would rather run it on your own system.
-
-</p>
-
-<p>
-  Additional RST resources:
-</p>
-
-<ul>
-  <li><a href="https://docutils.sourceforge.net/docs/ref/rst/directives.html">docutils.sourceforge.net/docs
-/ref/rst/directives.html</a>: reStructuredText Directives</li>
-  <li><a href="https://www.gutenberg.org/ebooks/181">PG RST manual</a>
-</ul>
+  <p>Note: After your file has transferred, processing can take as long a few minutes for
+large files. Send an email if the web server seems to time out (so that run-time limits
+can be adjusted).</p>
 
 <?php
-  print "<p>Currently, supported operations are the following.  Note that file TYPE is based on file NAME, 
-so files should end in .rst, .htm or .txt (or .zip, including those three file types):  \n<ul>\n";
-  print " <li>Input filetype <strong>RST</strong>: all supported output types (text, HTML, epub/mobi and va
-riations)</li>";
-  print " <li>Input filetype <strong>HTML</strong>: all supported output types, but with some problems or i
-rregularities.  For best results, provide HTML that includes the standard Project Gutenberg boilerplate inf
-ormation (header and footer), and do NOT provide author, title, etc. in the form below (just leave them bla
-nk)</li>";
-  print " <li>Input filetype <strong>text</strong> (any encoding): very limited, will only output other pla
-in text variations, no HTML or epub/mobi</li>";
-  print "</ul>";
+if (! isset($_REQUEST['make'])) {
+?>
 
+  <h2>Usage Details</h2>
+
+  <p>Here you can run ebookmaker on a file you upload.  The ebookmaker
+tools are what www.gutenberg.org uses to automatically create additional
+file formats for readers to enjoy.  The process is that a master format
+file (RST, HTML or plain text) is used to generate EPUB and other
+mobile-friendly formats, as well as HTML or text if they were not
+provided originally.</p>
+  
+  <p>It is <font color="red">strongly recommended</font> that
+this tool be utilized before new eBooks are submitted at
+<a href="https://upload.pglaf.org/">upload.pglaf.org</a>, in order to
+allow opportunity to improve the automated output by making changes
+to the submitted files.  In particular, the automated tools might
+do poorly when submissions utilize HTML for page layout, rather than
+only the content's structure.</p>
+
+  <p>Ebookmaker will be run against a single file type from among those
+you upload, whichever is found first: <tt>.rst .htm .html .txt</tt>,
+so probably you should just include one at a time.  Note, however, that
+the full processing chain is implemented for rst (ReStructured Text) only.
+For HTML, you will get most output formats (including EPUB).  For plain
+text, you will only get a few output formats (again, including EPUB), and
+probably some errors from ebookmaker.</p>
+
+  <p>You can test how well mobile output looks (EPUB and MOBI/Kindle)
+without needing a mobile device.  Instead, try one of the many free
+browser plug-ins. </p>
+
+  <p>The file you upload should contain a nearly-finished eBook project,
+such as would be submitted via
+<a href="https://upload.pglaf.org/">upload.pglaf.org</a>, although
+the directory/file structure is simpler. For HTML, it’s best to run the
+<a href="https://validator.w3.org">HTML validator</a> and other checks
+found in the upload.pglaf.org ‘preview’ function. The output you will get
+is intended to help determine whether resulting automatically-generated
+files (epub and other formats) have any problems or shortcomings that
+could be addressed prior to submission.</p>
+
+  <p>Information about ebookmaker best practices for Project Gutenberg is at
+<a href="https://www.pgdp.net/wiki/The_Proofreader%27s_Guide_to_EPUB">The
+Proofreader's Guide to EPUB</a></p>
+
+  <p>You can <a href="https://github.com/gutenbergtools/ebookmaker/blob/dev/README.md">download
+the most recent ebookmaker source</a> if you would rather run it on your own system.</p>
+
+  <p>Additional RST resources:</p>
+
+  <ul>
+    <li><a href="https://docutils.sourceforge.net/docs/ref/rst/directives.html">docutils.sourceforge.net/docs
+/ref/rst/directives.html</a>: reStructuredText Directives</li>
+    <li><a href="https://www.gutenberg.org/ebooks/181">PG RST manual</a>
+  </ul>
+
+  <p>Currently, supported operations are the following.  Note that file TYPE is based on
+file NAME, so files should end in .rst, .htm or .txt (or .zip, including those three file
+types):</p>
+  <ul>
+    <li>Input filetype <strong>RST</strong>: all supported output types (text, HTML,
+epub/mobi and variations)</li>
+    <li>Input filetype <strong>HTML</strong>: all supported output types, but with some
+problems or irregularities.  For best results, provide HTML that includes the standard
+Project Gutenberg boilerplate information (header and footer), and do NOT provide author,
+title, etc. in the form below (just leave them blank)</li>
+    <li>Input filetype <strong>text</strong> (any encoding): very limited, will only
+output other plain text variations, no HTML or epub/mobi</li>
+  </ul>
+
+<?php
   require('plaintail.inc');
   exit;
 } 
 
 // Did we get input?
 if (strlen($_FILES['upfile1']['name']) == 0) {
-  print "<p><font color=\"red\">Error: Ebookmaker was requested to process files, but no file ";
-  print "was received.  Please try again, or send email for help.";
-  print "</font></p>\n\n";
+?>
 
+  <p><font color="red">Error: Ebookmaker was requested to process files, but no file
+was received.  Please try again, or send email for help.</font></p>
+
+<?php
   require('plaintail.inc');
   exit;
 }
